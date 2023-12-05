@@ -1,0 +1,118 @@
+openapi: 3.0.2
+info:
+  title: fraud user app
+  description: "fraud user app description"
+  termsOfService: https://editor.swagger.io/ or https://editor-next.swagger.io/
+  contact:
+    email: example@gmail.com
+    url: https://swagger.io/specification/
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1-SNAPSHOT
+externalDocs:
+  description: Find out more about swagger
+  url: https://swagger.io/specification/
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Fraud User
+    description: Operations about Fraud user
+    externalDocs:
+      description: Find out more about our store
+      url: https://editor-next.swagger.io/
+paths:
+  /fraud_users/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: ID of the Fraud User
+    get:
+      tags:
+        - Fraud User
+      summary: Get Fraud User by ID
+      operationId: getFraudUserById
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FraudUser'
+    delete:
+      tags:
+        - Fraud User
+      summary: Delete Fraud User by ID
+      operationId: deleteFraudUserById
+      responses:
+        '204':
+          description: Successful operation
+    put:
+      tags:
+        - Fraud User
+      summary: Update Fraud User by ID
+      operationId: updateFraudUserById
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FraudUser'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FraudUser'
+  /fraud_users:
+    get:
+      tags:
+        - Fraud User
+      summary: Get all Fraud Users
+      operationId: getAllFraudUsers
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FraudUser'
+    post:
+      tags:
+        - Fraud User
+      summary: Create a new Fraud User
+      operationId: createFraudUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FraudUser'
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FraudUser'
+components:
+  schemas:
+    FraudUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64  # Используйте int64 для представления Long
+        name:
+          type: string
+        phone:
+          type: string
+      required:
+        - name
+        - phone

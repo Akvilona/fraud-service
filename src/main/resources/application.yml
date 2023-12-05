@@ -11,7 +11,7 @@ spring:
   application:
     name: account-service
   datasource:
-    url: jdbc:postgresql://localhost:5434/account
+    url: jdbc:postgresql://localhost:5434/fraud
     username: postgres
     password: postgres
   jpa:

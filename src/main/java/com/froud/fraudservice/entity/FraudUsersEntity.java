@@ -4,6 +4,7 @@ import com.froud.fraudservice.entity.support.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 
 @Entity
 @Table(name = "fraud_users")

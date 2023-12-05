@@ -29,6 +29,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
         description: ID of the Fraud User
     get:
       tags:
@@ -108,9 +109,11 @@ components:
       properties:
         id:
           type: integer
-          format: int64  # Используйте int64 для представления Long
+          format: int64
+          example: 1
         name:
           type: string
+          example: userName
         phone:
           type: string
       required:

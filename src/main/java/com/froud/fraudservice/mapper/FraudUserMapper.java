@@ -9,17 +9,10 @@ import org.mapstruct.MappingTarget;
 
 import java.util.Random;
 
-// Как работает MapperConfiguration ?
 @Mapper(config = MapperConfiguration.class)
 public interface FraudUserMapper {
 
     Random RANDOM = new Random();
-
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "name", source = "name")
-    @Mapping(target = "phone", source = "phone")
-    @Mapping(target = "id", expression = "java( RANDOM.nextLong() )")
-    FraudUsersEntity mapToEntity(FraudUser fraudUser);
 
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "name", source = "fraudUser.name")

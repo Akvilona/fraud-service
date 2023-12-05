@@ -32,7 +32,8 @@ public class FraudUserApiService {
 
     @Transactional
     public FraudUsersEntity updateUser(final Long id, final FraudUser fraudUser) {
-        final FraudUsersEntity users = userRepository.findById(id).orElseThrow();
+        final FraudUsersEntity users = userRepository.findById(id)
+            .orElseThrow();
         fraudUserMapper.updateFraudUserEntity(users, fraudUser);
         return users;
     }

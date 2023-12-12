@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "fraud_users")
-public class FraudUsersEntity extends BaseEntity {
+public class FraudUserEntity extends BaseEntity {
     private String name;
-    private String phone;
+    private String email;
 }

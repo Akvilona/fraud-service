@@ -1,7 +1,7 @@
 openapi: 3.0.2
 components:
   schemas:
-    FraudUser: {$ref: "./schemas/FraudUser.yml" }
+    FraudUser: { $ref: "./schemas/FraudUser.yml" }
 info:
   title: fraud user app
   description: "fraud user app description"
@@ -25,7 +25,7 @@ tags:
       description: Find out more about our store
       url: https://editor-next.swagger.io/
 paths:
-  /fraud_users/{id}:
+  /users/{id}:
     $ref: "./paths/fraudUsers_id.yml"
-  /fraud_users:
+  /users:
     $ref: "./paths/fraudUsers.yml"

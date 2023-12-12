@@ -7,9 +7,9 @@ properties:
   name:
     type: string
     example: userName
-  phone:
+  email:
     type: string
-    example: 8-123-458-11-22
+    example: example@mail.ru
 required:
   - name
-  - phone
+  - email

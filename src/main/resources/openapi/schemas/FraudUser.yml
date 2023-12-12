@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    example: 1
+  name:
+    type: string
+    example: userName
+  phone:
+    type: string
+    example: 8-123-458-11-22
+required:
+  - name
+  - phone

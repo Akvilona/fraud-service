@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Fraud User
+  summary: Get all Fraud Users
+  operationId: getAllFraudUsers
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/FraudUser.yml'
+post:
+  tags:
+    - Fraud User
+  summary: Create a new Fraud User
+  operationId: createFraudUser
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/FraudUser.yml'
+
+  responses:
+    '201':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/FraudUser.yml'

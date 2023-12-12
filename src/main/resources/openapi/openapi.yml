@@ -1,4 +1,7 @@
 openapi: 3.0.2
+components:
+  schemas:
+    FraudUser: {$ref: "./schemas/FraudUser.yml" }
 info:
   title: fraud user app
   description: "fraud user app description"
@@ -23,99 +26,6 @@ tags:
       url: https://editor-next.swagger.io/
 paths:
   /fraud_users/{id}:
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-        description: ID of the Fraud User
-    get:
-      tags:
-        - Fraud User
-      summary: Get Fraud User by ID
-      operationId: getFraudUserById
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FraudUser'
-    delete:
-      tags:
-        - Fraud User
-      summary: Delete Fraud User by ID
-      operationId: deleteFraudUserById
-      responses:
-        '204':
-          description: Successful operation
-    put:
-      tags:
-        - Fraud User
-      summary: Update Fraud User by ID
-      operationId: updateFraudUserById
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FraudUser'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FraudUser'
+    $ref: "./paths/fraudUsers_id.yml"
   /fraud_users:
-    get:
-      tags:
-        - Fraud User
-      summary: Get all Fraud Users
-      operationId: getAllFraudUsers
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/FraudUser'
-    post:
-      tags:
-        - Fraud User
-      summary: Create a new Fraud User
-      operationId: createFraudUser
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FraudUser'
-      responses:
-        '201':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FraudUser'
-components:
-  schemas:
-    FraudUser:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1
-        name:
-          type: string
-          example: userName
-        phone:
-          type: string
-      required:
-        - name
-        - phone
+    $ref: "./paths/fraudUsers.yml"

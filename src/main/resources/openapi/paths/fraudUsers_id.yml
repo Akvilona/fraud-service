@@ -1,0 +1,47 @@
+parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      format: int64
+    description: ID of the Fraud User
+get:
+  tags:
+    - Fraud User
+  summary: Get Fraud User by ID
+  operationId: getFraudUserById
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/FraudUser.yml'
+delete:
+  tags:
+    - Fraud User
+  summary: Delete Fraud User by ID
+  operationId: deleteFraudUserById
+  responses:
+    '204':
+      description: Successful operation
+
+put:
+  tags:
+    - Fraud User
+  summary: Update Fraud User by ID
+  operationId: updateFraudUserById
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/FraudUser.yml'
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/FraudUser.yml'

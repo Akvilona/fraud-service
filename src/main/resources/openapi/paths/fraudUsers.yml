@@ -20,7 +20,7 @@ get:
 post:
   tags:
     - Fraud User
-  summary: Post Fraud User
+  summary: Add Fraud User to DB
   operationId: postFraudUserById
   requestBody:
     required: true

@@ -1,4 +1,8 @@
 openapi: 3.0.2
+# for build full openapi file:
+# create one file   -> swagger-cli bundle openapi.yml --outfile _build/openapi.yaml --type yaml
+# Swagger Editor    -> https://editor-next.swagger.io/
+# start the program -> http://localhost:8082/swagger-ui/index.html
 components:
   schemas:
     FraudUser: { $ref: "./schemas/FraudUser.yml" }
@@ -8,7 +12,7 @@ info:
   termsOfService: https://editor.swagger.io/ or https://editor-next.swagger.io/
   contact:
     email: example@gmail.com
-    url: https://swagger.io/specification/
+    url: https://editor-next.swagger.io/
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html

@@ -28,8 +28,11 @@ tags:
     externalDocs:
       description: Find out more about our store
       url: https://editor-next.swagger.io/
+  - name: Depo Data
 paths:
   /users/{id}:
     $ref: "./paths/fraudUsers_id.yml"
   /users:
     $ref: "./paths/fraudUsers.yml"
+  /depo-data:
+    $ref: "./paths/depoData.yml"

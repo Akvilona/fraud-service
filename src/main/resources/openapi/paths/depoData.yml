@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Depo Data
+  summary: getDepoData
+  operationId: getDepoData
+  parameters:
+    - name: dateFrom
+      in: query
+      description: 'С какой даты делать выборку в формате yyyy-mm-dd'
+      required: true
+      schema:
+        type: string
+      example: 2020-12-31
+    - name: dateTo
+      in: query
+      description: 'По какую даты делать выборку в формате yyyy-mm-dd'
+      required: true
+      schema:
+        type: string
+      example: 2024-12-31
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/DepoDataResult.yml'
+

@@ -1,0 +1,46 @@
+type: array
+items:
+  type: object
+  properties:
+    depositorType:
+      type: string
+    balanceAccountNumber:
+      type: string
+    personalAccountNumber:
+      type: string
+    reminderActive:
+      type: number
+    reminderPassive:
+      type: number
+    taxBase:
+      type: number
+    vatSumTimeDiff:
+      type: number
+    decreaseSumTimeDiff:
+      type: number
+    sumLoss:
+      type: number
+    ndsPercent:
+      type: number
+    finResult:
+      type: number
+    addCapital:
+      type: number
+    finResultVat:
+      type: number
+    addCapital2:
+      type: number
+    sumOna:
+      type: number
+    finResultVat2:
+      type: number
+    addCapital3:
+      type: number
+    sumTakenLoss:
+      type: number
+    saldo61701:
+      type: number
+    saldo61703:
+      type: number
+    saldo10609:
+      type: number

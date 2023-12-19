@@ -29,6 +29,6 @@ spring:
 
 logging:
   level:
-    org.zalando.logbook: TRACE
+    org.zalando.logbook: ERROR
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'

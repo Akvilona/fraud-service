@@ -1,8 +1,6 @@
 package com.froud.fraudservice.service;
 
 import com.froud.fraudservice.entity.DepoDataResultInner;
-import com.froud.fraudservice.mapper.DepoDataMapper;
-import com.froud.fraudservice.repository.DebtProjection;
 import com.froud.fraudservice.repository.DebtRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +15,7 @@ import java.util.List;
 @Slf4j
 public class DebtService {
     private final DebtRepository debtRepository;
-    private final DepoDataMapper depoDataMapper;
+    //    private final DepoDataMapper depoDataMapper;
     //    private final PayRepository payRepository;
     //    private final DepositorRepository depositorRepository;
 
@@ -26,8 +24,7 @@ public class DebtService {
         LocalDate dateFromDate = LocalDate.parse(dateFrom, dtf);
         LocalDate dateToDate = LocalDate.parse(dateTo, dtf);
 
-        List<DebtProjection> debtInformationList = debtRepository.getDebtInformation(dateFromDate, dateToDate);
-        return depoDataMapper.toDepoDataResultInnerList(debtInformationList);
+        return debtRepository.getDebtInformation(dateFromDate, dateToDate, 2000);
     }
 
     //    private static List<DepoDataPay> getPayList() {

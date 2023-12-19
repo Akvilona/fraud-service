@@ -3,7 +3,8 @@ package com.froud.fraudservice.repository;
 import java.math.BigDecimal;
 
 public interface DebtProjection {
-    String getDepositorType();
+    @SuppressWarnings("MethodName")
+    String getDepositor_Type();
 
     String getBalanceAccountNumber();
 

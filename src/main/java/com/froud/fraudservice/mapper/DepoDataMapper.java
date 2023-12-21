@@ -17,7 +17,7 @@ public interface DepoDataMapper {
     DepoDataResultInner mapDepoDataResultInner(DebtProjection debtProjection);
 
     @Named("mapDepositorType")
-    default String mapDepositorType(DebtProjection debtProjection) {
+    default String mapDepositorType(final DebtProjection debtProjection) {
         return debtProjection.getDepositor_Type();
     }
 }

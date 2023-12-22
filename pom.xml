@@ -22,6 +22,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
         <logbook-spring-boot-starter.version>3.6.0</logbook-spring-boot-starter.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <postgresql.version>1.19.3</postgresql.version>
     </properties>
 
     <dependencyManagement>
@@ -79,6 +80,16 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

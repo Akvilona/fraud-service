@@ -21,7 +21,7 @@ externalDocs:
   description: Find out more about swagger
   url: https://swagger.io/specification/
 servers:
-  - url: http://localhost:8080
+  - url: http://localhost:8082
 tags:
   - name: Fraud User
     description: Operations about Fraud user

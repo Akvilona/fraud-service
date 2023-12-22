@@ -83,6 +83,7 @@ public interface DebtRepository extends JpaRepository<DepoDataDebt, Integer> {
                                    Pageable pageable);
 
     @Transactional(readOnly = true)
+    @SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
     default List<DepoDataResultInner> getDebtInformation(final LocalDate startDate, final LocalDate endDate, final Integer pageSize) {
         var pageRequest = PageRequest.of(0, pageSize);
         List<DepoDataResultInner> result = new ArrayList<>();

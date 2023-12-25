@@ -99,14 +99,14 @@ public class DebtService {
     //        );
     //    }
 
-//        @Bean
-//        public CommandLineRunner commandLineRunner() {
-//            return args -> {
-//                payRepository.saveAll(getPayList());
-//                depositorRepository.saveAll(getDepositorList());
-//                debtRepository.saveAll(getDebtList());
-//
-//                getDepoData(dateFrom, dateTo);
-//            };
-//        }
+    //        @Bean
+    //        public CommandLineRunner commandLineRunner() {
+    //            return args -> {
+    //                payRepository.saveAll(getPayList());
+    //                depositorRepository.saveAll(getDepositorList());
+    //                debtRepository.saveAll(getDebtList());
+    //
+    //                getDepoData(dateFrom, dateTo);
+    //            };
+    //        }
 }

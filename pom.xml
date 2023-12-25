@@ -23,6 +23,7 @@
         <logbook-spring-boot-starter.version>3.6.0</logbook-spring-boot-starter.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <postgresql.version>1.19.3</postgresql.version>
+        <annotations.version>3.0.1</annotations.version>
     </properties>
 
     <dependencyManagement>
@@ -39,9 +40,24 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${annotations.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>${annotations.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.zalando</groupId>
             <artifactId>logbook-spring-boot-starter</artifactId>

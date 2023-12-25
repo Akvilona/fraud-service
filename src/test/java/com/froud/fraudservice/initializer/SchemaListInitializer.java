@@ -14,6 +14,18 @@ public class SchemaListInitializer implements ApplicationContextInitializer<Conf
 
     @SneakyThrows
     private static Collection<String> collectAllSchemas() {
+        // the database schemas used in the project
+        //SELECT
+        //    nspname AS schema_name,
+        //    tablename AS table_name
+        //FROM
+        //    pg_tables INNER JOIN pg_namespace ON pg_tables.schemaname = pg_namespace.nspname
+        //WHERE
+        //    pg_namespace.nspname NOT LIKE 'pg_%' AND
+        //    pg_namespace.nspname <> 'information_schema'
+        //ORDER BY
+        //    schema_name, table_name;
+
         return List.of("public", "depo_data");
     }
 

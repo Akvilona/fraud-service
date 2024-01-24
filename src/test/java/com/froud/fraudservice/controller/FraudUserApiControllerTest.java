@@ -83,7 +83,7 @@ class FraudUserApiControllerTest {
             .build());
 
         //WHEN
-        ResponseEntity<Boolean> responseEntity = fraudUserApiControllerUnderTest.checkFraudUserByEmail(EMAIL);
+        ResponseEntity<Boolean> responseEntity = fraudUserApiControllerUnderTest._checkFraudUserByEmail(EMAIL);
 
         //THEN
         assertThat(responseEntity.getBody())
@@ -99,7 +99,7 @@ class FraudUserApiControllerTest {
             .build());
 
         //WHEN
-        ResponseEntity<Boolean> responseEntity = fraudUserApiControllerUnderTest.checkFraudUserByEmail(EMAIL);
+        ResponseEntity<Boolean> responseEntity = fraudUserApiControllerUnderTest._checkFraudUserByEmail(EMAIL);
 
         //THEN
         assertThat(responseEntity.getBody())

@@ -1,7 +1,7 @@
 package com.froud.fraudservice.mapper;
 
-import com.froud.fraudservice.entity.FraudUser;
 import com.froud.fraudservice.entity.FraudUserEntity;
+import com.froud.fraudservice.server.dto.FraudUser;
 import org.mapstruct.Mapper;
 
 @Mapper(config = MapperConfiguration.class)

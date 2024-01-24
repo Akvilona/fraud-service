@@ -1,7 +1,7 @@
 package com.froud.fraudservice.service;
 
-import com.froud.fraudservice.entity.DepoDataResultInner;
 import com.froud.fraudservice.repository.DebtRepository;
+import com.froud.fraudservice.server.dto.DepoDataResultInner;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

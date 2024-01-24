@@ -57,7 +57,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.zalando</groupId>
             <artifactId>logbook-spring-boot-starter</artifactId>
@@ -153,6 +156,7 @@
                 <version>${openapi-generator-maven-plugin.version}</version>
                 <executions>
                     <execution>
+                        <id>server</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -161,8 +165,8 @@
                                 ${project.basedir}/src/main/resources/openapi/openapi.yml
                             </inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>com.froud.fraudservice.controller</apiPackage>
-                            <modelPackage>com.froud.fraudservice.entity</modelPackage>
+                            <apiPackage>com.froud.fraudservice.server.controller</apiPackage>
+                            <modelPackage>com.froud.fraudservice.server.dto</modelPackage>
                             <supportingFilesToGenerate>
                                 ApiUtil.java
                             </supportingFilesToGenerate>
@@ -176,6 +180,28 @@
                                 <!--suppress UnresolvedMavenProperty -->
                                 <additionalModelTypeAnnotations>@lombok.Builder @lombok.NoArgsConstructor @lombok.AllArgsConstructor
                                 </additionalModelTypeAnnotations>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>client</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>
+                                ${project.basedir}/src/main/resources/openapi/openapi.yml
+                            </inputSpec>
+                            <library>webclient</library>
+                            <generatorName>java</generatorName>
+                            <apiPackage>com.froud.fraudservice.client</apiPackage>
+                            <modelPackage>com.froud.fraudservice.client</modelPackage>
+                            <invokerPackage>com.froud.fraudservice.client</invokerPackage>
+                            <configOptions>
+                                <useTags>true</useTags>
+                                <openApiNullable>false</openApiNullable>
+                                <useJakartaEe>true</useJakartaEe>
                             </configOptions>
                         </configuration>
                     </execution>

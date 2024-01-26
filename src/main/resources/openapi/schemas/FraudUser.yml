@@ -4,12 +4,15 @@ properties:
     type: integer
     format: int64
     example: 1
-  name:
+  firstName:
     type: string
     example: userName
-  email:
+  userEmail:
     type: string
     example: example@mail.ru
+  age:
+    type: integer
+    example: 25
 required:
-  - name
-  - email
+  - firstName
+  - userEmail

@@ -24,10 +24,6 @@ servers:
   - url: http://localhost:8082
 tags:
   - name: Fraud User
-    description: Operations about Fraud user
-    externalDocs:
-      description: Find out more about our store
-      url: https://editor-next.swagger.io/
   - name: Depo Data
 paths:
   /users/{id}:

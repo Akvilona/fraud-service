@@ -183,28 +183,6 @@
                             </configOptions>
                         </configuration>
                     </execution>
-
-                    <execution>
-                        <id>client</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>
-                                ${project.basedir}/src/main/resources/openapi/openapi.yml
-                            </inputSpec>
-                            <library>webclient</library>
-                            <generatorName>java</generatorName>
-                            <apiPackage>com.froud.fraudservice.client</apiPackage>
-                            <modelPackage>com.froud.fraudservice.client</modelPackage>
-                            <invokerPackage>com.froud.fraudservice.client</invokerPackage>
-                            <configOptions>
-                                <useTags>true</useTags>
-                                <openApiNullable>false</openApiNullable>
-                                <useJakartaEe>true</useJakartaEe>
-                            </configOptions>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
 

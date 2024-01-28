@@ -16,6 +16,7 @@ public interface FraudUserMapper {
     FraudUser toFraudUser(FraudUserEntity fraudUserEntity);
 
     @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "firstName")
     @Mapping(target = "email", source = "userEmail")
     FraudUserEntity toFraudUserEntity(FraudUser fraudUser);

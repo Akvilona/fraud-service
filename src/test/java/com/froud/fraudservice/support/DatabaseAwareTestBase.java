@@ -13,7 +13,6 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,8 +27,6 @@ public abstract class DatabaseAwareTestBase {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private TransactionTemplate transactionTemplate;
-
-    protected abstract String getSchema();
 
     protected abstract Set<String> getTables();
 
@@ -50,20 +47,15 @@ public abstract class DatabaseAwareTestBase {
 
     @AfterEach
     void truncateTables() {
-        jdbcTemplate.execute("TRUNCATE TABLE " + getTables()
-            .stream()
-            .map(this::tableNameWithSchema)
-            .collect(Collectors.joining(", ")) + " RESTART IDENTITY CASCADE");
+        String sql = "TRUNCATE TABLE "
+            + String.join(", ", getTables())
+            + " RESTART IDENTITY CASCADE";
+        jdbcTemplate.execute(sql);
     }
 
     protected long countRecordsInTable(final String tableName) {
-        final var queryResult = jdbcTemplate.queryForObject("select count(*) from " + tableNameWithSchema(tableName), Long.class);
+        final var queryResult = jdbcTemplate.queryForObject("select count(*) from " + tableName, Long.class);
         return Objects.requireNonNullElse(queryResult, 0L);
-    }
-
-    protected String tableNameWithSchema(final String tableName) {
-        final var schema = getSchema();
-        return tableName.startsWith(schema) ? tableName : String.format("%s.%s", schema, tableName);
     }
 
 }

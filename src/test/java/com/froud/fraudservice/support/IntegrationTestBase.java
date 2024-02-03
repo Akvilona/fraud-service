@@ -1,6 +1,9 @@
 package com.froud.fraudservice.support;
 
 import com.froud.fraudservice.controller.FraudUserApiController;
+import com.froud.fraudservice.repository.DebtRepository;
+import com.froud.fraudservice.repository.DepositorRepository;
+import com.froud.fraudservice.repository.PayRepository;
 import com.froud.fraudservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
@@ -17,6 +20,12 @@ public class IntegrationTestBase extends DatabaseAwareTestBase {
     protected FraudUserApiController fraudUserApiControllerUnderTest;
     @Autowired
     protected UserRepository userRepository;
+    @Autowired
+    protected DebtRepository debtRepository;
+    @Autowired
+    protected PayRepository payRepository;
+    @Autowired
+    protected DepositorRepository depositorRepository;
 
     @Override
     protected Set<String> getTables() {

@@ -75,6 +75,9 @@ class FraudUserApiControllerTest extends IntegrationTestBase {
                 .firstName(fraudUserEntity.getFirstName())
                 .userEmail(fraudUserEntity.getUserEmail())
                 .build());
+
+        assertThat(userRepository.findAll())
+            .hasSize(1);
     }
 
     private FraudUser postFraudUserByEmail(final FraudUser fraudUser, final int status) {

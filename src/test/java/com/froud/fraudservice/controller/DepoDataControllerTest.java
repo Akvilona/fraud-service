@@ -1,6 +1,7 @@
 package com.froud.fraudservice.controller;
 
 import com.froud.fraudservice.server.dto.DepoDataResultInner;
+import com.froud.fraudservice.support.DataProvider;
 import com.froud.fraudservice.support.IntegrationTestBase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,18 @@ class DepoDataControllerTest extends IntegrationTestBase {
     void getDepoDataTest() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        String dateFrom = LocalDate.now()
+        final String dateFrom = LocalDate.now()
             .format(formatter);
-        String dateTo = LocalDate.now().plusDays(7)
+        final String dateTo = LocalDate.now().plusDays(7)
             .format(formatter);
+
+        payRepository.saveAll(DataProvider.getPayList());
+        depositorRepository.saveAll(DataProvider.getDepositorList());
+        debtRepository.saveAll(DataProvider.getDebtList());
 
         ResponseEntity<List<DepoDataResultInner>> responseEntity = depoDataController._getDepoData(dateFrom, dateTo);
         List<DepoDataResultInner> body = responseEntity.getBody();
-        assertThat(body).hasSize(0);
+        assertThat(body).hasSize(2);
 
     }
 

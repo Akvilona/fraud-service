@@ -7,6 +7,7 @@ import lombok.experimental.UtilityClass;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @UtilityClass
@@ -47,6 +48,9 @@ public class DataProvider {
     }
 
     public List<DepoDataDebt> getDebtList() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String dateFrom = LocalDate.now().format(formatter);
+
         return List.of(
             DepoDataDebt.builder()
                 .debtDepositor(101)
@@ -57,7 +61,7 @@ public class DataProvider {
                 .remainder(BigDecimal.valueOf(85.50))
                 .endServicePeriod(LocalDate.of(2023, 12, 31))
                 .status("REGISTERED")
-                .billFormedDate(LocalDate.of(2023, 12, 31))
+                .billFormedDate(LocalDate.parse(dateFrom, formatter))
                 .build(),
             DepoDataDebt.builder()
                 .debtDepositor(102)
@@ -68,7 +72,7 @@ public class DataProvider {
                 .remainder(BigDecimal.valueOf(222.50))
                 .endServicePeriod(LocalDate.of(2023, 12, 15))
                 .status("REGISTERED")
-                .billFormedDate(LocalDate.of(2023, 12, 5))
+                .billFormedDate(LocalDate.parse(dateFrom, formatter))
                 .build(),
             DepoDataDebt.builder()
                 .debtDepositor(103)
@@ -79,7 +83,7 @@ public class DataProvider {
                 .remainder(BigDecimal.valueOf(222.50))
                 .endServicePeriod(LocalDate.of(2023, 12, 20))
                 .status("REGISTERED")
-                .billFormedDate(LocalDate.of(2023, 12, 10))
+                .billFormedDate(LocalDate.parse(dateFrom, formatter))
                 .build()
         );
     }

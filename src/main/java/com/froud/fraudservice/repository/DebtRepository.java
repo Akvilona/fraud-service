@@ -73,7 +73,7 @@ public interface DebtRepository extends JpaRepository<DepoDataDebt, Integer> {
                            on debt.id = debtBeforeMonth.id
                  left join depo_data.depositor depositor on debt.debt_depositor = depositor.id
         where debt.status in ('REGISTERED', 'HALF_PAID')
-          and depositor.personal_account_number is not null
+          and depositor.personal_account_number is null
           and debt.bill_formed_date between :dateFrom and :dateTo
           group by personalAccountNumber, debt.depositor_type
           order by debt.depositor_type;
